@@ -1,21 +1,23 @@
 #include <stdio.h>
+//이동 로봇의 배터리 용량 선정
 
 int main(void)
 {
-    double I_load, vel, R;
+    double I_load, vel, R;                  //변수 선언
     double V, C, eta;
     double E_usable, P, t, d;
-    printf("평균 전류를 입력하세요: ");
+
+    printf("평균 전류를 입력하세요(A): ");         //변수 입력(오류 예외 처리)
     if(scanf("%lf",&I_load)!=1) return 1;
-    printf("평균 속도를 입력하세요: ");
+    printf("평균 속도를 입력하세요(km/h): ");
     if(scanf("%lf",&vel)!=1) return 1;
-    printf("예비율을 입력하세요: ");
+    printf("예비율을 입력하세요[0-1]: ");
     if(scanf("%lf",&R)!=1) return 1;
-    printf("공칭 전압을 입력하세요: ");
+    printf("공칭 전압을 입력하세요(V): ");
     if(scanf("%lf",&V)!=1) return 1;
-    printf("용량을 입력하세요: ");
+    printf("용량을 입력하세요(Ah): ");
     if(scanf("%lf",&C)!=1) return 1;
-    printf("시스템 효율을 입력하세요: ");
+    printf("시스템 효율을 입력하세요[0-1]: ");
     if(scanf("%lf",&eta)!=1) return 1;
 
     if (V<=0 || C<=0 || I_load<=0 || vel<0 || R<0 || R>1 || eta<=0 || eta>1)
@@ -24,7 +26,7 @@ int main(void)
         return 1;
     }
 
-    E_usable = V * C * eta * (1 - R);
+    E_usable = V * C * eta * (1 - R);       //사용가능 에너지
     P = V * I_load / eta;
     t = E_usable / P;
     d = vel * t;
@@ -40,8 +42,9 @@ int main(void)
     printf("시스템효율 : %.2lf\n\n", eta);
 
     printf("결과\n");
-    printf("사용 가능 에너지: %.2lf\n", E_usable);
-    printf("런타임: %.2lf\n", t);
-    printf("주행거리: %.2lf\n", d);
+    printf("사용 가능 에너지 [Wh]: %.2lf\n", E_usable);
+    printf("런타임 [h]: %.2lf\n", t);
+    printf("주행거리 [km]: %.2lf\n", d);
+    printf("[계산 가정: 전압강하/온도영향 무시, 평균전류 일정, 전류는 부하측 기준]")
 
 }
