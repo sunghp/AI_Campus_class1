@@ -26,12 +26,12 @@ int main(void)
         return 1;
     }
 
-    E_usable = V * C * eta * (1 - R);       //사용가능 에너지
-    P = V * I_load / eta;
-    t = E_usable / P;
-    d = vel * t;
+    E_usable = V * C * eta * (1 - R);       //사용가능 에너지(Wh)
+    P = V * I_load / eta;                   //소비전력(W)
+    t = E_usable / P;                       //런타임(h)
+    d = vel * t;                            //주행거리(km)
 
-    printf("-------사전 선정 정보-------\n");
+    printf("-------사전 선정 정보-------\n");   //결과 출력
     printf("평균전류 [A]: %.2lf\n", I_load);
     printf("평균속도 [km/h]: %.2lf\n", vel);
     printf("예비율 : %.2lf\n\n", R);
@@ -45,6 +45,6 @@ int main(void)
     printf("사용 가능 에너지 [Wh]: %.2lf\n", E_usable);
     printf("런타임 [h]: %.2lf\n", t);
     printf("주행거리 [km]: %.2lf\n", d);
-    printf("[계산 가정: 전압강하/온도영향 무시, 평균전류 일정, 전류는 부하측 기준]")
+    printf("[계산 가정: 전압강하/온도영향 무시, 평균전류 일정, 전류는 부하측 기준]");
 
 }
