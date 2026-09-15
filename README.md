@@ -13,12 +13,13 @@ to the kind of situations one might encounter when working with robots.
 
 Each folder is named by the date of the practice session. Inside, the
 exercises are numbered simply (e.g. `0914_1.c`, `0914_2.c`).
+```
 ├── 0914/
 │ ├── 0914_1.c
 │ ├── 0914_2.c
 │ └── ...
 ├── 0915/
 │ └── ...
-
+```
 Each source file includes comments describing the problem definition and
 a short note on the related robotics concept.
