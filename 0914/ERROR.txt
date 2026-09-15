@@ -1,0 +1,7 @@
+[ERROR] Sensor failed
+[ERROR] Motor overload
+[ERROR] Sensor failed
+[ERROR] Motor overload
+[ERROR] Sensor failed
+[ERROR] Motor overload
+6
